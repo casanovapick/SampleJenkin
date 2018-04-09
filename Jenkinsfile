@@ -1,7 +1,6 @@
 
 def GIT_URL = 'https://github.com/CyberioMor/uchoose_android.git'
 node {
-   def ANDROID_HOME='/Users/wannnasit.chaiphinan/Library/Android/sdk'
    stage('Preparation') {
       git GIT_URL
    }
@@ -17,7 +16,7 @@ node {
    stage('Static code analysis'){
       def workspace = pwd() 
       def SONAR_SETTING = "${workspace}@script/sonar-project.properties"
-      sh "sonar-scanner  -Dproject.settings=${SONAR_SETTING}"
+      sh "/Users/wannnasit.chaiphinan/Library/SonarScanner/bin/sonar-scanner  -Dproject.settings=${SONAR_SETTING}"
    }
 
    stage('Pack') {

@@ -1,6 +1,6 @@
 
 def GIT_URL = 'https://github.com/CyberioMor/uchoose_android.git'
-node('android') {
+node {
 
    stage('Preparation') {
       git GIT_URL

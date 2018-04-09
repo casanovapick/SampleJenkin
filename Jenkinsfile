@@ -10,7 +10,7 @@ node {
    }
 
    stage('Stage Unit Tests') {
-      sh "./gradlew testReleaseUnitTest"
+      sh "./gradlew test"
    }
 
    stage('Static code analysis'){

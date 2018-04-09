@@ -1,7 +1,7 @@
 
 def GIT_URL = 'https://github.com/CyberioMor/uchoose_android.git'
 node {
-
+   def ANDROID_HOME='/Users/wannnasit.chaiphinan/Library/Android/sdk'
    stage('Preparation') {
       git GIT_URL
    }

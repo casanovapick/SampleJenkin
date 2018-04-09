@@ -16,7 +16,7 @@ node {
 
    stage('Static code analysis'){
       def SONAR_SETTING = scriptPath("sonar-project.properties")
-      sonar-scanner  -Dproject.settings=SONAR_SETTING
+      sonar-scanner  -Dproject.settings=${SONAR_SETTING}
    }
 
    stage('Pack') {

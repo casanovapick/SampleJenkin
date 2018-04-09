@@ -16,7 +16,7 @@ node {
 
    stage('Static code analysis'){
       def workspace = pwd() 
-      def SONAR_SETTING = "${workspace}@script/sonar-project.properties""
+      def SONAR_SETTING = "${workspace}@script/sonar-project.properties"
       sh "sonar-scanner  -Dproject.settings=${SONAR_SETTING}"
    }
 

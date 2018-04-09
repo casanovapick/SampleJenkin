@@ -14,6 +14,11 @@ node {
       sh "./gradlew testReleaseUnitTest"
    }
 
+   stage('Static code analysis'){
+      def SONAR_SETTING = scriptPath("sonar-project.properties")
+      sonar-scanner $SONAR_SETTING
+   }
+
    stage('Pack') {
       sh "./gradlew clean assembleDevelopDebug"
       sh "./gradlew clean assembleProductionRelease"

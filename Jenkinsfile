@@ -2,13 +2,10 @@
 def GIT_URL = 'https://github.com/CyberioMor/uchoose_android.git'
 node {
 
-   stage('Clean') {
-      sh "./gradlew clean build"
-   }
-
    stage('Preparation') {
       cleanWs()
       git url: "${GIT_URL}" ,branch: "${BRANCH.replaceAll(".*/","")}"
+      sh "./gradlew clean build"
    }
 
    stage('Unit Tests') {

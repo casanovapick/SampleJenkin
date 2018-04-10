@@ -2,15 +2,16 @@
 def GIT_URL = 'https://github.com/CyberioMor/uchoose_android.git'
 node {
    stage('Preparation') {
+      cleanWs()
       git url: "${GIT_URL}" ,branch: "${BRANCH.replaceAll(".*/","")}"
    }
 
-   stage('Stage Build') {
-      sh "./gradlew clean"
+   stage('Clean') {
+      sh "./gradlew clean build"
    }
 
-   stage('Stage Unit Tests') {
-      sh "./gradlew test"
+   stage('Unit Tests') {
+      sh "./gradlew test --offilne"
    }
 
    stage('Static code analysis'){
@@ -19,8 +20,8 @@ node {
       sh "/Users/wannnasit.chaiphinan/Library/SonarScanner/bin/sonar-scanner  -Dproject.settings=${SONAR_SETTING}"
    }
 
-   stage('Pack') {
-      sh "./gradlew clean assembleDevelopDebug"
-      sh "./gradlew clean assembleProductionRelease"
+   stage('Packaging') {
+      sh "./gradlew clean assembleDevelopDebug --offline"
+      sh "./gradlew clean assembleProductionRelease --offline"
    }
 }

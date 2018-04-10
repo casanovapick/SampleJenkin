@@ -24,4 +24,8 @@ node {
       sh "./gradlew clean assembleDevelopDebug --offline"
       sh "./gradlew clean assembleProductionRelease --offline"
    }
+
+   stage('Upload'){
+      nexusArtifactUploader artifacts: [[artifactId: 'android', classifier: '', file: '**/*.apk', type: 'apk']], credentialsId: '', groupId: 'uchoose', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0.0'
+   }
 }

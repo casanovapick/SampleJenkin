@@ -2,7 +2,7 @@
 def GIT_URL = 'https://github.com/CyberioMor/uchoose_android.git'
 node {
    stage('Preparation') {
-      git url: "${GIT_URL}" ,branch: "${BRANCH.replaceAll(".*\/","")}"
+      git url: "${GIT_URL}" ,branch: "${BRANCH.replaceAll(".*/","")}"
    }
 
    stage('Stage Build') {

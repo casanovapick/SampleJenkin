@@ -23,6 +23,6 @@ node {
 
    stage('Upload'){
       archiveArtifacts '**/*.apk'
-      nexusArtifactUploader credentialsId: 'cedf432b-2dd2-4e3c-ae6a-11780cf6244d', groupId: 'uchoose.android', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0.0'
+      nexusArtifactUploader credentialsId: 'cedf432b-2dd2-4e3c-ae6a-11780cf6244d', groupId: 'uchoose.android', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-releases', version: '1.0.0'
    }
 }

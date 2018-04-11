@@ -23,6 +23,6 @@ node {
 
    stage('Upload'){
       sh "zip -r artifact.zip . -i *.apk"
-      nexusArtifactUploader artifacts: [[artifactId: 'uchoose', classifier: '', file: 'artifact.zip']], credentialsId: 'cedf432b-2dd2-4e3c-ae6a-11780cf6244d', groupId: 'mobile.android', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-releases', version: '1.0.0'
+      nexusArtifactUploader artifacts: [[artifactId: 'uchoose', classifier: '', file: 'artifact.zip', type: 'zip']], credentialsId: 'cedf432b-2dd2-4e3c-ae6a-11780cf6244d', groupId: 'mobile.android', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-releases', version: '1.0.0'
    }
 }

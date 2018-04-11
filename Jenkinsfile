@@ -22,7 +22,7 @@ node {
    }
 
    stage('Upload'){
-      zip zipFile: "artifact.zip", glob: "**/*.apk", archive:true
-      nexusArtifactUploader artifacts: [[artifactId: 'uchoose', classifier: '', file: 'artifact.zip', type: 'zip']], credentialsId: 'cedf432b-2dd2-4e3c-ae6a-11780cf6244d', groupId: 'mobile.android', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-releases', version: '1.0.0'
+      zip zipFile: "./app/*", glob: "**/*.apk", archive:true
+      nexusArtifactUploader artifacts: [[artifactId: 'uchoose', classifier: '', file: 'app.zip', type: 'zip']], credentialsId: 'cedf432b-2dd2-4e3c-ae6a-11780cf6244d', groupId: 'mobile.android', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-releases', version: '1.0.0'
    }
 }
